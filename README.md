@@ -53,21 +53,21 @@ response:
 
 
 
-### return the AZ of lowest price of c4.large in us-west-2
+### return the AZ of lowest price of c4.large in eu-central-1
 
 
 
 just add `?return_lowest_az=1` as the argument
 
 ```
-$ curl  -s https://ec2spot.com/current-spot-price/us-west-2/Linux/c4.large?return_lowest_az=1| json_pp
+$ curl  -s https://ec2spot.com/current-spot-price/eu-central-1/Linux/c4.large?return_lowest_az=1| json_pp
 ```
 
 response:
 
 ```
 {
-   "data" : "us-west-2c"
+   "data" : "eu-central-1b"
 }
 ```
 
