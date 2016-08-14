@@ -1,6 +1,6 @@
 # ec2spot.com
 
-public API to query AWS EC2 spot prices
+public serverless API to query AWS EC2 spot prices
 
 ## Endpoint
 
@@ -75,5 +75,5 @@ response:
 
 ## Response Cache
 
-Please note the service comes with CloudFront with 30s TTL cache expiration time. Some request may takes longer time than usual when cache expires. 
+Please note the service comes with CloudFront with 30s TTL cache expiration time. Some requests may take longer time than usual when cache expires. 
 
