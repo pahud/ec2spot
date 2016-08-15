@@ -51,5 +51,5 @@ make sure your EC2 is running with the role of proper privileges to publish SNS.
 
 ## SECURITY
 
-If you have security concern, you can download the shell script in your EC2 instance locally and have the **UserData** execute it on instance launch.
+If you have security concern, you can download the shell script and save in your EC2 instance locally, rebuilding new AMI and have the **UserData** just execute it locally without using cURL on instance launch.
 
