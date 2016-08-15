@@ -25,8 +25,31 @@ please replace the **ARN** variable above with your real ARN (e.g. `arn:aws:sns:
 
 
 
+make sure your EC2 is running with the role of proper privileges to publish SNS.
 
-# SECURITY
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1471246554000",
+            "Effect": "Allow",
+            "Action": [
+                "sns:Publish"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
+*restrict the Resource field to the SNS topic arn if you like.*
+
+
+
+## SECURITY
 
 If you have security concern, you can download the shell script in your EC2 instance locally and have the **UserData** execute it on instance launch.
 
