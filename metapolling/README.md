@@ -21,10 +21,12 @@ curl -s https://metapolling.ec2spot.com -o /tmp/spot_terminating_notify.sh
 ARN=<YOUR_SNS_TOPIC_ARN> bash /tmp/spot_terminating_notify.sh  &
 ```
 
-please replace the **ARN** variable above with your real ARN, i.e. `arn:aws:sns:ap-northeast-2:123456789012:MY_SNS_TOPIC` 
+please replace the **ARN** variable above with your real ARN (e.g. `arn:aws:sns:ap-northeast-2:123456789012:MY_SNS_TOPIC` )
+
 
 
 
 # SECURITY
 
 If you have security concern, you can download the shell script in your EC2 instance locally and have the **UserData** execute it on instance launch.
+
