@@ -55,8 +55,6 @@ response:
 
 ### return the AZ of lowest price of c4.large in eu-central-1
 
-
-
 just add `?return_lowest_az=1` as the argument
 
 ```
@@ -70,6 +68,35 @@ response:
    "data" : "eu-central-1b"
 }
 ```
+
+
+
+### query current spot price of MULTIPLE instance types in us-west-2
+
+```
+$ curl  -s https://ec2spot.com/current-spot-price/us-west-2/Linux/c4.large,c4.xlarge,m4.large | json_pp
+```
+
+*seperate instance types with comma*
+
+### return the AZ of lowest price within all provided instance types
+
+just add `?return_lowest_az=1` as the argument
+
+```
+$ curl  -s https://ec2spot.com/current-spot-price/us-west-2/Linux/c4.large,c4.xlarge,m4.large?return_lowest_az=1 | json_pp
+{
+   "data" : {
+      "ProductDescription" : "Linux/UNIX",
+      "InstanceType" : "c4.large",
+      "Timestamp" : "2016-08-16T15:30:04.000Z",
+      "AvailabilityZone" : "us-west-2c",
+      "SpotPrice" : "0.021800"
+   }
+}
+```
+
+
 
 
 
