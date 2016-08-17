@@ -1,6 +1,6 @@
 # metapolling
 
-A quick hack to enable your EC2 spot instances to send SNS notification two minutes in prior to the termination due to price too low.
+A quick hack to enable your EC2 spot instances to send SNS notification two minutes in prior to the termination due to price too low and deregister itself from registered ELBs immediately.
 
 Basically this will execute a shell script in the backgeound on instance launch, polling the EC2 metadata every 5 seconds, and publish SNS message to specified topic arn when receiving the termination notify signal.
 
@@ -25,7 +25,7 @@ please replace the **ARN** variable above with your real ARN (e.g. `arn:aws:sns:
 
 
 
-make sure your EC2 is running with the role of proper privileges to publish SNS.
+make sure your EC2 is running with the role of proper privileges:
 
 ```
 {
@@ -40,7 +40,18 @@ make sure your EC2 is running with the role of proper privileges to publish SNS.
             "Resource": [
                 "*"
             ]
-        }
+        },
+        {
+            "Sid": "Stmt1471442030000",
+            "Effect": "Allow",
+            "Action": [
+                "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
+                "elasticloadbalancing:DescribeLoadBalancers"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }        
     ]
 }
 ```
